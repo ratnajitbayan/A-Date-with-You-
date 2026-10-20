@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="A little surprise, made with love.">
+  <title>A Date with You ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div id="heartsLayer" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" id="brandHome" aria-label="Return to welcome screen">
+        <span class="brand-mark">A</span>
+        <span>A Date <span class="gold-text">with You</span></span>
+      </a>
+
+      <button id="musicToggle" class="music-toggle" type="button"
+        aria-pressed="false">
+        <span aria-hidden="true">♫</span>
+        <span id="musicLabel">Music Off</span>
+      </button>
+    </header>
+
+    <div class="progress" id="progress" aria-label="Experience progress">
+      <span class="progress-dot active"></span>
+      <span class="progress-line"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-line"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-line"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-line"></span>
+      <span class="progress-dot"></span>
+    </div>
+
+    <main class="main-content">
+
+      <!-- SCREEN 1: WELCOME -->
+      <section class="screen active" id="welcomeScreen">
+        <div class="hero-card glass-card">
+          <div class="hero-ornament" aria-hidden="true">
+            <span></span><span class="ornament-heart">♡</span><span></span>
+          </div>
+
+          <p class="eyebrow">A LITTLE SOMETHING, JUST FOR YOU</p>
+
+          <h1>Some moments<br>deserve to be <em>special.</em></h1>
+
+          <p class="hero-copy">
+            I've been planning something from my heart.
+            And there's only one person I'd want to share it with.
+          </p>
+
+          <div class="hero-seal" aria-hidden="true">
+            <span>MADE WITH</span>
+            <strong>♡</strong>
+            <span>LOVE</span>
+          </div>
+
+          <button class="btn btn-gold" id="openSurpriseBtn" type="button">
+            Open Your Surprise <span aria-hidden="true">↗</span>
+          </button>
+
+          <p class="micro-copy">A little corner of the world, just for us.</p>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: QUESTION -->
+      <section class="screen" id="questionScreen">
+        <div class="content-card glass-card">
+          <div class="round-emblem" aria-hidden="true">♡</div>
+          <p class="eyebrow">ONE LITTLE QUESTION</p>
+
+          <h2>Will you go on<br>a date with me?</h2>
+
+          <p class="section-copy">
+            Just you and me. A beautiful day, little moments,
+            and memories we'll keep close.
+          </p>
+
+          <div class="choice-area" id="choiceArea">
+            <button class="btn btn-gold" id="yesBtn" type="button">
+              Yes, I'd love to ♡
+            </button>
+            <button class="btn btn-outline no-button" id="noBtn" type="button">
+              No 🙈
+            </button>
+          </div>
+
+          <p class="micro-copy" id="questionHint">Choose honestly... if you can catch the other button.</p>
+        </div>
+      </section>
+
+      <!-- SCREEN 3: LOVE NOTE -->
+      <section class="screen" id="surpriseScreen">
+        <div class="content-card letter-card glass-card">
+          <p class="eyebrow">A NOTE FROM MY HEART</p>
+          <div class="letter-top" aria-hidden="true">To my favourite person</div>
+
+          <h2>Dear <em>Beautiful,</em></h2>
+
+          <div class="love-note">
+            <p>
+              If I could choose one person to spend a little more time with,
+              to laugh with over the smallest things, and to make ordinary
+              moments feel extraordinary, I'd choose you.
+            </p>
+            <p>
+              I don't need everything to be perfect. I just want a little
+              time with you, a few smiles, and a memory that makes us happy
+              whenever we think about it.
+            </p>
+            <p>
+              So let's plan something that's completely ours. You choose
+              what sounds fun, and I'll bring the smiles. Deal?
+            </p>
+          </div>
+
+          <p class="letter-signature">With all my heart, ♡</p>
+
+          <button class="btn btn-gold" id="planDateBtn" type="button">
+            Let's Plan Our Date <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- SCREEN 4: DATE PLANNER -->
+      <section class="screen planner-screen" id="plannerScreen">
+        <div class="planner-card glass-card">
+          <div class="planner-heading">
+            <p class="eyebrow">OUR LITTLE ADVENTURE</p>
+            <h2>Plan <em>our date.</em></h2>
+            <p class="section-copy">Choose the details. Let's make it ours.</p>
+          </div>
+
+          <form id="dateForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="dateInput">01 — The date</label>
+                <input type="date" id="dateInput" name="date" required>
+              </div>
+
+              <div class="form-group">
+                <label for="timeInput">02 — The time</label>
+                <input type="time" id="timeInput" name="time" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="placeInput">03 — Where shall we go?</label>
+                <input type="text" id="placeInput" name="place"
+                  placeholder="A cafe, a park, or somewhere special..."
+                  maxlength="120">
+              </div>
+            </div>
+
+            <div class="form-group activity-group">
+              <span class="field-label">04 — Choose our little adventure</span>
+              <p class="field-hint">Pick as many as you like.</p>
+
+              <div class="type-grid" id="typeGrid">
+                <label class="type-option">
+                  <input type="checkbox" value="Coffee date">
+                  <span class="option-icon">☕</span><span>Coffee</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Dinner date">
+                  <span class="option-icon">🥂</span><span>Dinner</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Movie date">
+                  <span class="option-icon">🎬</span><span>Movie</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Pizza date">
+                  <span class="option-icon">🍕</span><span>Pizza</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Burger date">
+                  <span class="option-icon">🍔</span><span>Burger</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Ice cream date">
+                  <span class="option-icon">🍦</span><span>Ice cream</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Park date">
+                  <span class="option-icon">🌿</span><span>Park</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Sunset date">
+                  <span class="option-icon">🌅</span><span>Sunset</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Shopping date">
+                  <span class="option-icon">🛍</span><span>Shopping</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Photoshoot date">
+                  <span class="option-icon">📸</span><span>Photoshoot</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Picnic date">
+                  <span class="option-icon">🧺</span><span>Picnic</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Long drive">
+                  <span class="option-icon">🚗</span><span>Long drive</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Breakfast date">
+                  <span class="option-icon">🥐</span><span>Breakfast</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Gaming date">
+                  <span class="option-icon">🎮</span><span>Gaming</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Bookstore date">
+                  <span class="option-icon">📚</span><span>Bookstore</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Candlelight date">
+                  <span class="option-icon">🕯</span><span>Candlelight</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Bowling date">
+                  <span class="option-icon">🎳</span><span>Bowling</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Karaoke date">
+                  <span class="option-icon">🎤</span><span>Karaoke</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Art date">
+                  <span class="option-icon">🎨</span><span>Art</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Museum date">
+                  <span class="option-icon">🏛</span><span>Museum</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Amusement park date">
+                  <span class="option-icon">🎡</span><span>Amusement park</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Beach date">
+                  <span class="option-icon">🌊</span><span>Beach</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Pet cafe date">
+                  <span class="option-icon">🐾</span><span>Pet cafe</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Surprise date">
+                  <span class="option-icon">🎁</span><span>Surprise</span>
+                </label>
+                <label class="type-option">
+                  <input type="checkbox" value="Other">
+                  <span class="option-icon">✦</span><span>Something else</span>
+                </label>
+              </div>
+
+              <input type="text" id="otherTypeInput"
+                placeholder="Tell me what you'd love to do..."
+                maxlength="100" hidden>
+            </div>
+
+            <div class="form-group">
+              <label for="personalMessageInput">05 — A little message (optional)</label>
+              <textarea id="personalMessageInput" name="message" rows="3"
+                maxlength="500"
+                placeholder="Something sweet you want to tell me..."></textarea>
+            </div>
+
+            <p class="form-error" id="formError" role="alert" hidden></p>
+
+            <div class="planner-actions">
+              <button class="btn btn-gold" type="submit">
+                Preview Our Date <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- SCREEN 5: PREVIEW -->
+      <section class="screen" id="previewScreen">
+        <div class="content-card preview-card glass-card">
+          <p class="eyebrow">A LITTLE PLAN, JUST FOR US</p>
+          <h2>Our date <em>proposal.</em></h2>
+          <p class="section-copy">Have a look before you send it.</p>
+
+          <div class="preview-box">
+            <div class="preview-row">
+              <span class="preview-label">Date</span>
+              <span class="preview-value" id="previewDate">—</span>
+            </div>
+            <div class="preview-row">
+              <span class="preview-label">Time</span>
+              <span class="preview-value" id="previewTime">—</span>
+            </div>
+            <div class="preview-row">
+              <span class="preview-label">Place</span>
+              <span class="preview-value" id="previewPlace">—</span>
+            </div>
+            <div class="preview-row">
+              <span class="preview-label">Activities</span>
+              <div class="preview-value preview-types" id="previewTypes">—</div>
+            </div>
+            <div class="preview-row">
+              <span class="preview-label">A message</span>
+              <span class="preview-value" id="previewMessage">—</span>
+            </div>
+          </div>
+
+          <p class="preview-footnote">
+            Your invitation opens in WhatsApp with the message ready.
+            You'll still press Send yourself.
+          </p>
+
+          <div class="preview-actions">
+            <button class="btn btn-outline" id="editPlanBtn" type="button">
+              ← Edit Plan
+            </button>
+            <button class="btn btn-gold" id="sendWhatsAppBtn" type="button">
+              Send Invitation ♡
+            </button>
+          </div>
+
+          <button class="text-button" id="continueEndingBtn" type="button">
+            Continue to the final surprise
+          </button>
+          <p class="form-error" id="previewError" role="alert" hidden></p>
+        </div>
+      </section>
+
+      <!-- SCREEN 6: ENDING -->
+      <section class="screen" id="endingScreen">
+        <div class="content-card ending-card glass-card">
+          <div class="ending-ornament" aria-hidden="true">
+            <span>✦</span><strong>♡</strong><span>✦</span>
+          </div>
+          <p class="eyebrow">AND THAT'S MY LITTLE SURPRISE</p>
+          <h2>Until then,<br><em>my favourite person.</em></h2>
+          <p class="section-copy">
+            No matter where we go, my favourite part will always be
+            the time I get to spend with you.
+          </p>
+          <div class="ending-divider"><span>♡</span></div>
+          <p class="ending-message">Here's to us, and all the little moments ahead.</p>
+          <button class="btn btn-gold" id="restartBtn" type="button">
+            Start Our Story Again ↺
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>MADE WITH <span class="gold-text">♡</span> AND A LITTLE COURAGE</span>
+    </footer>
+  </div>
+
+  <audio id="backgroundMusic" src="Until.mp3" loop preload="none"></audio>
+</body>
+</html>
